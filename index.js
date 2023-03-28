@@ -1,61 +1,68 @@
 // TODO: Include packages needed for this application
+const generateMarkdown  = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
-const path = require('path');
-const generateMarkdown  = require('./utils/generateMarkdown');
+// const path = require('path');
 
 // TODO: Create a function to write README file
 function writeToFile(file, data) {
  return fs.writeFileSync(path.join(file), data)
 }
 
-//Array of questions for user input
+//Array questions for user 
 const questions = [
     {
         type: 'input',
         name: 'github',
-        message: 'Enter your GitHub Username',
+        message: "Enter your github username?",
     },
     {
         type: 'input',
-        name: 'email',
-        message: 'Enter your email address.',
-    },
-    {
-        type: 'input',
-        name: 'title',
-        message: "What is your project's name?",
+        name: 'titleofproject',
+        message: 'Enter the title of your project',
     },
     {
         type: 'input',
         name: 'description',
-        message: 'Please type a short description of your project:',
+        message: 'Enter the description of your project',
+    },
+    // {
+    //     type: 'input',
+    //     name: 'title',
+    //     message: "What is your project's name?",
+    // },
+    // {
+    //     type: 'input',
+    //     name: 'description',
+    //     message: 'Please type a short description of your project:',
+    // },
+    {
+        type: 'input',
+        name: 'installation',
+        message: 'What is needed to install your work?',
+        default: 'npm i',
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'What is required to run a test for your project?',
+        default: 'npm test',
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'How should the user use your work?',
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: '?',
     },
     {
         type: 'list',
         name: 'license',
         message: 'Which license would you like your project to have?',
         choices: ['APACHE_2.0', 'Boost_1.0', 'BSD_3--Clause', 'MIT', 'None'],
-    },
-    {
-        type: 'input',
-        name: 'install',
-        message: 'What command should be run to install dependencies?',
-    },
-    {
-        type: 'input',
-        name: 'tests',
-        message: 'What command should be run to run tests?',
-    },
-    {
-        type: 'input',
-        name: 'usage',
-        message: 'What does the user need to know about using the repo?',
-    },
-    {
-        type: 'input',
-        name: 'contributing',
-        message: 'What does the user need to know about contributing to the repo?',
     },
 ]
 
