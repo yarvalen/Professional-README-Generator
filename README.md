@@ -11,7 +11,7 @@
 ## Screenshot
 
 ## Installation
-Run : 
+Run below: 
 npm i inquirer@8.2.4 
 ## Usage
 Clone this repository to your local computer.
