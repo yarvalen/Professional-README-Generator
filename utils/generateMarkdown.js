@@ -4,14 +4,15 @@ function renderLicenseBadge(license) {
   if (license !== 'None') {
     return `![License: ${license}](https://img.shields.io/badge/License-${license}-yellow.svg)`
   }
-  return ""
+  return "";
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== 'None') {
-    return "- [License](#license)"
+    return `\n[License](#license)\n`;
+    // "- [License](#license)"
   }
   return ""
 }
@@ -20,8 +21,9 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license !== 'None') {
-    return "## License"
-  ${ license }
+    return `## License
+    \n This project is licensed under ${license}\n
+    `
   }
   return ""
 }
@@ -30,33 +32,41 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
+
+  ## Description
+  ${data.projectDesc}
+
   ## Table of Contents 
+  - [Description](#description)
   - [Installation](#installation)
-  - [Usage](#usage)
   - [Test](#test)
-  - [Credits](#credits)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Credits](#credits) 
   - [Questions](#questions)
-${renderLicenseLink(data.license)}
-## Description
-${data.projectDesc}
+
 
 ## Installation
-${data.install}
+${data.installation}
 
 ## Usage
+Application link/Commmand to run: ${data.link}
 ${data.usage}
 
 ## Tests
 ${data.tests}
 
 ## Credits
+Created by: ${data.creator} (https://github.com/${data.gitHub})\n
+Collaborations: ${data.credits}
+${renderLicenseSection(data.license)}
+
 ${data.credits}
 
 ## Questions
 ${data.questions}
 
-${renderLicenseSection(data.license)}
-
+${renderLicenseLink(data.license)}
 `;
 }
 

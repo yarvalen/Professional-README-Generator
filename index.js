@@ -2,12 +2,14 @@
 const generateMarkdown  = require('./utils/generateMarkdown');
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const path = require('path');
+const path = require('path');
 
 // TODO: Create a function to write README file
-function writeToFile(file, data) {
+function writeToFile(file, data, err) {
+    if (err) {
+
  return fs.writeFileSync(path.join(file), data)
-}
+}};
 
 //Array questions for user 
 const questions = [
@@ -23,7 +25,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'description',
+        name: 'descriptionofproject',
         message: 'Enter the description of your project',
     },
     // {
@@ -45,7 +47,7 @@ const questions = [
     {
         type: 'input',
         name: 'tests',
-        message: 'What is required to run a test for your project?',
+        message: 'What is required to run a test on your project?',
         default: 'npm test',
     },
     {
@@ -59,7 +61,7 @@ const questions = [
         message: '?',
     },
     {
-        type: 'list',
+        type: 'checkbox',
         name: 'license',
         message: 'Which license would you like your project to have?',
         choices: ['APACHE_2.0', 'Boost_1.0', 'BSD_3--Clause', 'MIT', 'None'],
@@ -67,9 +69,9 @@ const questions = [
 ]
 
     function start (){
-        inquirer.prompt (questions).then((response) => {
+        inquirer.prompt(questions).then((response) => {
         console.log("answers")
-        writeToFile('./output/README.md', generateMarkdown(response))
+        writeToFile('./output/README.md', generateMarkdown({response}))
     
         })}
-        start()
+        start();
