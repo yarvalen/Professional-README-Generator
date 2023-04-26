@@ -14,7 +14,7 @@ function renderLicenseLink(license) {
     return `\n[License](#license)\n`;
     // "- [License](#license)"
   }
-  return ""
+  return '';
 }
 
 // TODO: Create a function that returns the license section of README
@@ -22,27 +22,26 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license !== 'None') {
     return `## License
-    \n This project is licensed under ${license}\n
-    `
+    \n The license of this project is under ${license} license.`;
   }
-  return ""
+  return '';
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  console.log(data)
   return `# ${data.title}
   ${renderLicenseBadge(data.license)}
 
-  ## Description
-  ${data.projectDesc}
+  ## Description: 
+  ${data.descriptionofproject}
 
-  ## Table of Contents 
+  ## Table of Contents:
   - [Description](#description)
   - [Installation](#installation)
   - [Test](#test)
   - [Usage](#usage)
   - [License](#license)
-  - [Credits](#credits) 
   - [Questions](#questions)
 
 
@@ -50,18 +49,17 @@ function generateMarkdown(data) {
 ${data.installation}
 
 ## Usage
-Application link/Commmand to run: ${data.link}
+Application link to run: 
 ${data.usage}
 
 ## Tests
 ${data.tests}
 
-## Credits
-Created by: ${data.creator} (https://github.com/${data.gitHub})\n
-Collaborations: ${data.credits}
+// ## Credits
+Created by: ${data.github} (https://github.com/${data.github})\n
+contributions: ${data.contributions}
 ${renderLicenseSection(data.license)}
 
-${data.credits}
 
 ## Questions
 ${data.questions}

@@ -7,8 +7,8 @@ const path = require('path');
 // TODO: Create a function to write README file
 function writeToFile(file, data, err) {
     if (err) {
-
- return fs.writeFileSync(path.join(file), data)
+        throw err
+  return fs.writeFileSync(path.join(file), data)
 }};
 
 //Array questions for user 
@@ -20,7 +20,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'titleofproject',
+        name: 'title',
         message: 'Enter the title of your project',
     },
     {
@@ -28,16 +28,6 @@ const questions = [
         name: 'descriptionofproject',
         message: 'Enter the description of your project',
     },
-    // {
-    //     type: 'input',
-    //     name: 'title',
-    //     message: "What is your project's name?",
-    // },
-    // {
-    //     type: 'input',
-    //     name: 'description',
-    //     message: 'Please type a short description of your project:',
-    // },
     {
         type: 'input',
         name: 'installation',
@@ -57,11 +47,11 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contributing',
-        message: '?',
+        name: 'contributions',
+        message: 'What contributions have been do the repo?',
     },
     {
-        type: 'checkbox',
+        type: 'input',
         name: 'license',
         message: 'Which license would you like your project to have?',
         choices: ['APACHE_2.0', 'Boost_1.0', 'BSD_3--Clause', 'MIT', 'None'],
@@ -71,7 +61,9 @@ const questions = [
     function start (){
         inquirer.prompt(questions).then((response) => {
         console.log("answers")
-        writeToFile('./output/README.md', generateMarkdown({response}))
     
+        fs.writeFile("./output/README.md", generateMarkdown(response), (err) =>
+        err ? console.log(err) : console.log("Successfully created index.html!")
+      );
         })}
         start();
