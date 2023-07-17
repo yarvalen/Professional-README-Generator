@@ -9,7 +9,8 @@ This application has been developed to help the user easily create a README file
     - [Usage](#usage)
     - [Credits](#credits)
     - [License](#license)
-## Screenshot
+## Demo Video
+https://drive.google.com/file/d/1GFbMN33HzT1zpkqoBNLDX7q7zR4NYtHG/view
 
 ## Installation
 Run below: 

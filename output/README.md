@@ -1,8 +1,8 @@
-# wf
-  ![License: wer](https://img.shields.io/badge/License-wer-yellow.svg)
+# Demo ReadMe Generator
+  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
   ## Description: 
-  wrqf
+  Help build a ReadMe for any project
 
   ## Table of Contents:
   - [Description](#description)
@@ -14,22 +14,22 @@
 
 
 ## Installation
-rb
+npm i
 
 ## Usage
 Application link to run: 
-btr
+Help developers build there specific ReadMe for there projects
 
 ## Tests
-rb
+npm test
 
 // ## Credits
-Created by: wef (https://github.com/wef)
+Created by: yarvale (https://github.com/yarvale)
 
-contributions: wr
+contributions: None
 ## License
     
- The license of this project is under wer license.
+ The license of this project is under MIT license.
 
 
 ## Questions
